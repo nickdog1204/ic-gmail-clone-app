@@ -1,0 +1,21 @@
+doctype html
+ion-app
+  ion-split-pane(contentId='main-content')
+    ion-menu(contentId='main-content', type='overlay')
+      ion-content
+        ion-list#inbox-list
+          ion-list-header Inbox
+          ion-note hi@ionicframework.com
+
+          ion-menu-toggle(auto-hide='false', *ngFor='let p of appPages; let i = index')
+            ion-item(routerDirection='root', [routerLink]="[p.url]", routerLinkActive='selected', detail='false', lines='none')
+              ion-icon(slot='start', [ios]="p.icon + '-outline'", [md]="p.icon + '-sharp'")
+              ion-label {{ p.title }}
+        ion-list#labels-list
+          ion-list-header Labels
+
+          ion-item(*ngFor='let label of labels', lines='none')
+            ion-icon(slot='start', ios='bookmark-outline', md='bookmark-sharp')
+            ion-label {{ label }}
+
+    ion-router-outlet#main-content

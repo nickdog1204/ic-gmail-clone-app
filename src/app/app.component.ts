@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NgrxMapFeatureStateService} from "./common/services/ngrx/ngrx-map-feature-state.service";
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -14,5 +15,6 @@ export class AppComponent {
     { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  constructor() {
+  }
 }
