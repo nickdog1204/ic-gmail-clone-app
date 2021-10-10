@@ -1,15 +1,10 @@
-import {createEntityAdapter, EntityState} from "@ngrx/entity";
-import {createReducer, on} from "@ngrx/store";
-import {actions} from "../../ngrx-app/actions";
+import {createEntityAdapter, EntityState} from '@ngrx/entity';
+import {createReducer, on} from '@ngrx/store';
+import {actions} from '../../ngrx-app/actions';
+import {IMail} from '../../../../../common/models/mail';
 
-export interface IMail {
-  from: string;
-  read: boolean;
-  content: string;
-  date: string;
-  star: boolean;
-  id: string;
-}
+
+
 
 export const featureStateKey = 'mail';
 
@@ -23,7 +18,7 @@ const initialState: IMailFeatureState = adapter.getInitialState({
   isListOfMailsFirstLoadedFromRemote: false
 });
 
-const acts = actions.mailFeatureStateActions.mailMainActions
+const acts = actions.mailFeatureStateActions.mailMainActions;
 
 export const reducer = createReducer<IMailFeatureState>(
   initialState,

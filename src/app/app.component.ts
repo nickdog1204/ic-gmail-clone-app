@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgrxMapFeatureStateService} from "./common/services/ngrx/ngrx-map-feature-state.service";
+import {NgrxMailFeatureStateService} from "./common/services/ngrx/ngrx-mail-feature-state.service";
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',

@@ -7,12 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { MailPageRoutingModule } from './mail-routing.module';
 
 import { MailPage } from './mail.page';
+import {SharedModule} from "../../../modules/shared/shared.module";
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
     MailPageRoutingModule
   ],
   declarations: [MailPage]

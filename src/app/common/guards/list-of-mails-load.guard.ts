@@ -1,23 +1,23 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from '@angular/router';
 import {Observable} from 'rxjs';
-import {NgrxMapFeatureStateService} from '../services/ngrx/ngrx-map-feature-state.service';
-import {first} from 'rxjs/operators';
+import {NgrxMailFeatureStateService} from '../services/ngrx/ngrx-mail-feature-state.service';
+import {first, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListOfMailsLoadGuard implements CanActivate {
-  constructor(private ngrxMapFeatureStateService: NgrxMapFeatureStateService) {
+  constructor(private ngrxMailFeatureStateService: NgrxMailFeatureStateService) {
   }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):
     Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.ngrxMapFeatureStateService
+    return this.ngrxMailFeatureStateService
       .checkIsLoadListOfMailsForTheFirstTimeAndWaitForTheListToLoadObservable()
-      .pipe(first());
+      .pipe(first(), tap(it => console.log(`router guard it: ${it}`)));
   }
 
 }

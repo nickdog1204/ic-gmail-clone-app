@@ -1,5 +1,5 @@
 import {createAction, props} from '@ngrx/store';
-import {IMail} from '../reducers';
+import {IMail} from '../../../../../common/models/mail';
 
 
 export const loadListOfMailsForTheFirstTimeSTART = createAction(

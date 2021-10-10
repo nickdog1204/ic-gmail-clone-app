@@ -1,0 +1,10 @@
+doctype html
+ng-container(*ngrxLet='vm$; let vm')
+  ion-header
+    ion-toolbar
+      ion-title My mail
+  ion-content
+    ion-list
+      ion-item(*ngFor='let mail of vm.listOfMails')
+        ion-icon(name='mail', slot='start')
+        ion-label OKOK
