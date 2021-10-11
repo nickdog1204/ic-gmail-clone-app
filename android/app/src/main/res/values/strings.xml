@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MyGmailClone111</string>
+    <string name="title_activity_main">MyGmailClone111</string>
+    <string name="package_name">com.ipoint.nick1204.googlemailclone</string>
+    <string name="custom_url_scheme">com.ipoint.nick1204.googlemailclone</string>
+</resources>

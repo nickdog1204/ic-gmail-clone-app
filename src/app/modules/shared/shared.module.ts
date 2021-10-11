@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {IonicModule} from "@ionic/angular";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HideHeaderDirective} from "./directives/hide-header.directive";
 import {ReactiveComponentModule} from "@ngrx/component";
 import {AccountComponent} from "./components/account/account.component";
+import {AnimatedFabDirective} from './directives/animated-fab.directive';
+import {SwipeItemComponent} from "./components/swipe-item/swipe-item.component";
 
 const SHARED_MODULE_LIST = [
   CommonModule,
@@ -14,19 +16,20 @@ const SHARED_MODULE_LIST = [
 ];
 
 const SHARED_DIRECTIVE_LIST = [
-  HideHeaderDirective
+  HideHeaderDirective,
+  AnimatedFabDirective
 ];
 
 const SHARED_COMPONENT_LIST = [
-  AccountComponent
+  AccountComponent,
+  SwipeItemComponent
 ];
-
 
 
 @NgModule({
   declarations: [
     ...SHARED_DIRECTIVE_LIST,
-    ...SHARED_COMPONENT_LIST
+    ...SHARED_COMPONENT_LIST,
   ],
   imports: [
     ...SHARED_MODULE_LIST
@@ -37,4 +40,5 @@ const SHARED_COMPONENT_LIST = [
     ...SHARED_COMPONENT_LIST
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

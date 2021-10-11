@@ -42,12 +42,12 @@ export class HideHeaderDirective {
       newPosition = -this.scrollDistance
     }
 
-    let newOpacity = 1 - (newPosition / -this.scrollDistance)
+    const newOpacity = 1 - (newPosition / -this.scrollDistance)
 
     this.domController.write(() => {
       this.renderer.setStyle(this.searchOverlay, 'top', Math.min(0, newPosition) + 'px');
       this.renderer.setStyle(this.searchOverlay, 'opacity', newOpacity);
-    })
+    });
 
     this.saveY = $event.detail.currentY;
     if (this.direction !== newDirection) {

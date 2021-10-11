@@ -1,0 +1,55 @@
+.email-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.wrapper {
+  background-color: red;
+  height: 89px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+
+  .column {
+    flex: 1;
+    flex-basis: 100%;
+  }
+}
+
+
+.email {
+  height: 89px;
+  margin-bottom: 6px;
+  display: flex;
+  background-color: white;
+
+  ion-label {
+    white-space: pre;
+  }
+
+  .excerpt {
+    padding-top: 4px;
+  }
+
+  .date {
+    font-size: small;
+  }
+}
+
+.rounded {
+  border-radius: 10px;
+  z-index: 2;
+  box-shadow: 0 6px 13px -5px rgb(0 0 0 / 28%);
+}
+
+:host {
+  display: block;
+}
