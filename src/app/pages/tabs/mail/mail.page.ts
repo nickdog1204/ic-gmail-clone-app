@@ -3,6 +3,8 @@ import {IMailPageViewModel, MailPageStore} from "./mail.page-store";
 import {Observable, of} from "rxjs";
 import {IMail} from "../../../common/models/mail";
 import {tap} from "rxjs/operators";
+import {PopoverController} from "@ionic/angular";
+import {AccountComponent} from "../../../modules/shared/components/account/account.component";
 
 @Component({
   selector: 'app-mail',
@@ -15,7 +17,8 @@ export class MailPage implements OnInit, AfterViewInit {
   vm$: Observable<IMailPageViewModel>;
 
   constructor(
-    private mailPageStore: MailPageStore
+    private mailPageStore: MailPageStore,
+    private popoverController: PopoverController
   ) {
     console.log('mail page constructor');
   }
@@ -31,6 +34,23 @@ export class MailPage implements OnInit, AfterViewInit {
     );
     // this.mailPageStore.waitAndGetFromGlobalStoreListOfMailsAndInitializeStore();
     console.log('mail page OnInit2222');
+  }
+
+  async openAccountAsync(ev) {
+    const popover = await this.popoverController.create({
+      component: AccountComponent,
+      event: ev,
+      cssClass: 'custom-popover'
+    });
+
+    return popover.present();
+
+  }
+
+  doRefresh($event) {
+    setTimeout(() => {
+      $event.target.complete();
+    }, 3000);
   }
 
 }

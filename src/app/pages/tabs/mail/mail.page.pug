@@ -1,10 +1,33 @@
 doctype html
-ng-container(*ngrxLet='vm$; let vm')
-  ion-header
-    ion-toolbar
-      ion-title My mail
-  ion-content
+ion-content(scrollEvents='true', [appHideHeader]='searchOverlay')
+  .search-overlay(slot='fixed', #searchOverlay)
+    ion-row.ion-align-items-center
+      ion-col(size='2')
+        ion-menu-button(color='dark')
+      ion-col(size='8')
+        ion-input(placeholder='Search in mails')
+      ion-col(size='2')
+        ion-avatar((click)='openAccountAsync($event)')
+          img(src='https://en.gravatar.com/userimage/71535578/a4803efe6592196d7bcda63224972984.jpg')
+  ion-refresher((ionRefresh)='doRefresh($event)', slot='fixed')
+    ion-refresher-content(refreshing-spinner='crescent')
+  ng-container(*ngrxLet='vm$; let vm')
     ion-list
-      ion-item(*ngFor='let mail of vm.listOfMails')
-        ion-icon(name='mail', slot='start')
-        ion-label OKOK
+      ion-list-header Inbox
+      ion-item(*ngFor='let mail of vm.listOfMails', lines='none').email
+        ion-row.ion-align-items-center
+          ion-col(size='2')
+            .email-circle([style.background-color]='mail.color') {{ mail.from | slice:0:1 }}
+          ion-col(size='8')
+            ion-label.ion-text-capitalize.ion-text-wrap(color='dark', [style.font-weight]='mail.read? "":"bold"')
+              | {{ mail.from.split("@")[0] }}
+              p.excerpt
+                | {{ (mail.content.length > 50) ? (mail.content | slice:0:50) + '...' : mail.content }}
+          ion-col(size='2')
+            .ion-text-right((click)='mail.star = !mail.star')
+              .date {{ mail.date | date:'dd. MMM'}}
+              ion-icon(
+                [name]='mail.star ? "star" : "star-outline"',
+                [color]='mail.star ? "warning" : "medium"'
+              )
+

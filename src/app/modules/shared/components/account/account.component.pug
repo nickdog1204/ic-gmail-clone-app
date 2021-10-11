@@ -1,0 +1,32 @@
+doctype html
+ion-header.ion-no-border
+  ion-toolbar.ion-text-center
+    ion-buttons(slot='start')
+      ion-button((click)='closeThisPopover()', fill='clear', color='dark')
+        ion-icon(name='close', slot='icon-only')
+    img(src='./assets/logo.png', [style.width]='"70px"')
+ion-content.ion-padding
+  ion-item(lines='none')
+    ion-avatar(slot='start')
+      img(src="https://en.gravatar.com/userimage/71535578/a4803efe6592196d7bcda63224972984.jpg")
+    ion-label(color='dark')
+      | Simon Grimm
+      p saimon@ionicacademy.com
+  ion-button(expand='full', shape='round', fill='outline', color='dark').ion-padding
+    | Manage Your Google Account
+
+  ion-item.ion-margin-top(lines='none')
+    ion-icon(name='person-add-outline', slot='start')
+    ion-label Add another account
+  ion-item.ion-margin-bottom(lines='none')
+    ion-icon(name='person', slot='start')
+    ion-label Manage Account on this device
+
+ion-footer
+  ion-toolbar
+    ion-row
+      ion-col(size='6').ion-text-right
+        | Privacy Policy
+      ion-col(size='t').ion-text-left
+        | Terms of Service
+

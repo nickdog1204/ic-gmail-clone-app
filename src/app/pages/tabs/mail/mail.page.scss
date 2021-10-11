@@ -1,0 +1,58 @@
+ion-content {
+  --padding-top: 40px;
+}
+
+.email-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.search-overlay {
+  margin: 20px;
+  width: 90%;
+
+  ion-row {
+    margin-top: 40px;
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 15%);
+    background-color: #fff;
+    border-radius: 8px;
+
+  }
+
+  ion-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+}
+
+
+ion-refresher {
+}
+
+ion-list {
+  margin-top: 80px;
+}
+
+.email {
+  margin-bottom: 6px;
+
+  ion-label {
+    white-space: pre;
+  }
+
+  .excerpt {
+    padding-top: 4px;
+  }
+
+  .date {
+    font-size: small;
+  }
+}
